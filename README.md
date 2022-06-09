@@ -6,7 +6,7 @@ Just poking around with a couple of js libraries I've wanted to play with. Goal 
 npm run dev -- --open
 ```
 
-Using http://sonoport.github.io/prototyping-synths-with-AudioKeys.html
-to try to figure out polyphony. 
-
-I'm guessing it's a scope thing where AudioContext needs to be defined above bug and then have the timing passed?
+trying and failing at [Svelte Context API](https://svelte.dev/tutorial/context-api) to get polyphony working.
+Other clues:
+- http://sonoport.github.io/prototyping-synths-with-AudioKeys.html
+- http://sonoport.github.io/js/playAudioKeys.js

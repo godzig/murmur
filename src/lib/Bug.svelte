@@ -1,20 +1,15 @@
 <script>
-// @ts-nocheck
+	import { getContext } from 'svelte';
 
-	import { onMount } from 'svelte';
-	import { AudioContext } from "standardized-audio-context"
+	const { getCtx } = getContext("context");
+	const context = getCtx();
 
-	let context
-	onMount(() => {
-		context = new AudioContext();
-	});
-
-	export let name = 'chirp'
-	export let pulse = false
-	export let frequency = 440
-	let type = 'sine'
-	let squelch = 2.5
-	let pause = 300
+	export let name = 'chirp';
+	export let pulse = false;
+	export let frequency = 440;
+	let type = 'sine';
+	let squelch = 2.5;
+	let pause = 300;
 
 	function start(){
 		if (pulse) {
@@ -26,13 +21,13 @@
 	}
 
 	function note(){
-		let osc = context.createOscillator()
-		let gain = context.createGain()
-		osc.connect(gain)
-		gain.connect(context.destination)
-		osc.frequency.value = frequency
-		osc.type = type
-		osc.start()
+		let osc = context.createOscillator();
+		let gain = context.createGain();
+		osc.connect(gain);
+		gain.connect(context.destination);
+		osc.frequency.value = frequency;
+		osc.type = type;
+		osc.start();
 
 		gain.gain.exponentialRampToValueAtTime(
 			0.00001, context.currentTime + squelch
@@ -41,24 +36,24 @@
 
 	function beat(){
 		for (let i=0; i<4; i++){
-			note()
-			sleep(pause)
+			note();
+			sleep(pause);
 		}
 	}
 
 	function sleep(milliseconds) {
-		const date = Date.now()
-		let currentDate = null
+		const date = Date.now();
+		let currentDate = null;
 		do {
 			currentDate = Date.now()
 		} while (currentDate - date < milliseconds)
 	}
 </script>
 
+
 <div class="bug">
 	<button on:click={start} >{name}</button>
 </div>
-
 
 
 <style>
