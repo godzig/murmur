@@ -6,7 +6,8 @@ Just poking around with a couple of js libraries I've wanted to play with. Goal 
 npm run dev -- --open
 ```
 
-trying and failing at [Svelte Context API](https://svelte.dev/tutorial/context-api) to get polyphony working.
+Still working on getting polyphony working. Successfully created a single AudioContext, now to add multiple oscillators to the same AudioContext
+
 Other clues:
-- http://sonoport.github.io/prototyping-synths-with-AudioKeys.html
-- http://sonoport.github.io/js/playAudioKeys.js
+- https://svelte.dev/tutorial/context-api
+- https://www.taniarascia.com/musical-instrument-web-audio-api/
